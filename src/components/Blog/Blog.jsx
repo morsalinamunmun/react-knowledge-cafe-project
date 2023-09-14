@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import { FaBeer } from 'react-icons/fa';
 const Blog = ({blog, handleAddBookmarks, handleReadingTime}) => {
-    const {title,cover, author_img, author, posted_date, reading_time, hashtags} = blog;
+    const {id, title,cover, author_img, author, posted_date, reading_time, hashtags} = blog;
     return (
         <div className='mb-20 space-y-3'>
             <img src={cover} className='w-full mb-7' alt={`cover picture of the title ${title}`} />
@@ -25,7 +25,7 @@ const Blog = ({blog, handleAddBookmarks, handleReadingTime}) => {
                     hashtags.map((hashtag, idx)=><span key={idx}><a href="">#{hashtag}</a></span>)
                 }
             </p>
-            <button onClick={()=>handleReadingTime(reading_time)}>Mark AS Read</button>
+            <button onClick={()=>handleReadingTime(id, reading_time)}>Mark AS Read</button>
         </div>
     );
 };
